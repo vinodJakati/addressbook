@@ -4,16 +4,13 @@ pipeline {
   stages {
     stage ("clone the repository") {
       steps {
-        echo "some steps"
-        echo "some more steps"
+        git https://github.com/upshiftnow/addressbook.git
       }
     }
     stage ("compile the project") {
       steps {
-        echo "Compilation Steps"
+        sh "mvn compile"
       }
     }
   }
-  
-  
 }
