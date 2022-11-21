@@ -1,21 +1,29 @@
 pipeline {
- 
-  agent any
-  stages {
-    stage ("clone the repository") {
-      steps {
-        git "https://github.com/upshiftnow/addressbook.git"
-      }
+    agent any
+
+    stages {
+        stage ("clone the project") {
+            steps{
+                git "https://github.com/upshiftnow/addressbook.git"
+            }
+        }
+        stage ("compile") {
+            steps {
+                echo "executing Compilation"
+                sh "mvn compile"
+            }
+        }
+        stage ("tests") {
+            steps {
+                echo "executing tests"
+                sh "mvn test"
+            }
+        }
+        stage ("package") {
+            steps {
+                echo "Creating a package"
+                sh "mvn package"
+            }
+        }
     }
-    stage ("compile the project") {
-      steps {
-        sh "mvn compile"
-      }
-    }
-    stage ("Tests") {
-      steps {
-        sh "mvn test"
-      }
-    }
-  }
 }
