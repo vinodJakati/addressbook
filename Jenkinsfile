@@ -23,6 +23,7 @@ pipeline {
             steps {
                 echo "Creating a package"
                 sh "mvn package"
+                
             }
         }
     }
