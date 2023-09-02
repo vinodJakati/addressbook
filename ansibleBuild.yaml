@@ -1,0 +1,7 @@
+  - name: Running mvn clean
+    shell: "mvn package"
+    register: mvn_result
+
+  - name: "mvn clean task output"
+    debug:
+     var: mvn_result
