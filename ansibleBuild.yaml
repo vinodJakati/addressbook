@@ -1,7 +1,10 @@
-- name: "Run mvn package"
-  shell: "mvn package"
-  register: mvn_result
-
-- name: "mvn output"
-  debug:
-  var: mvn_result
+- name: "manage worker1 and 2"
+  hosts: all
+  become: true
+  tasks:
+  - name: "Run mvn package"
+    shell: "mvn package"
+    register: mvn_result
+  - name: "mvn output"
+    debug:
+    var: mvn_result
