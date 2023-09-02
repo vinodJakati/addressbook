@@ -7,4 +7,5 @@
     register: mvn_result
   - name: "mvn output"
     debug:
-    var: mvn_result
+      var: mvn_result
+  
