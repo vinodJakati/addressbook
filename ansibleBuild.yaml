@@ -1,4 +1,4 @@
-- name: "manage worker1 and 2"
+- name: "Build"
   hosts: all
   become: true
   tasks:
