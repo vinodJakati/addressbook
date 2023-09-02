@@ -2,6 +2,11 @@
   hosts: all
   become: true
   tasks:
+  - name: "install maven"
+    apt:
+      update_cache: yes
+      name: maven
+    
   - name: "Run mvn package"
     shell: "mvn package"
     register: mvn_result
